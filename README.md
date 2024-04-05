@@ -24,3 +24,4 @@ $ node servidor.js
 # Em outro terminal, execute o cliente para se conectar ao servidor
 $ node cliente.js
 ```
+Agora você pode conversar no chat. Para encerrar a conexão, basta digitar "stop".

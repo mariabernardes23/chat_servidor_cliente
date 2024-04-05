@@ -34,7 +34,7 @@ const server = net.createServer((socket) => {
   }
 
   // Lidar com mensagens do cliente
-function pullMensage() {
+  function pullMensage() {
     socket.on('data', (mensagem) => {
       console.log('-> Cliente:', mensagem.toString('utf8'));
       writeMensage()
