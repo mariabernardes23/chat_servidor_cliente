@@ -1,4 +1,3 @@
-const { WriteStream } = require('fs');
 const net = require('net');
 const readline = require('readline');
 const porta = 3001;
