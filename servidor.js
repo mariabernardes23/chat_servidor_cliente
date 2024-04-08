@@ -30,16 +30,13 @@ const server = net.createServer((socket) => {
   // Enviar uma mensagem para o cliente
   function pushMensage(mensagem) {
     socket.write(mensagem)
-    pullMensage();
   }
 
   // Lidar com mensagens do cliente
-  function pullMensage() {
-    socket.on('data', (mensagem) => {
-      console.log('-> Cliente:', mensagem.toString('utf8'));
-      writeMensage()
-    });
-  }
+  socket.on('data', (mensagem) => {
+    console.log('-> Cliente:', mensagem.toString('utf8'));
+    writeMensage()
+  });
 
   // Lidar com a desconexão do cliente
   socket.on('close', () => {

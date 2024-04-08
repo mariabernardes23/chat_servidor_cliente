@@ -29,12 +29,10 @@ function writeMensage() {
 }
 
 // Lidar com mensagens do servidor
-function pullMensage() {
-  client.on('data', (mensagem) => {
-    console.log('-> Servidor:', mensagem.toString('utf8'));
-    writeMensage();
-  });
-}
+client.on('data', (mensagem) => {
+  console.log('-> Servidor:', mensagem.toString('utf8'));
+  writeMensage();
+});
 
 // Lidar com a desconexão do servidor
 client.on('close', () => {
@@ -44,7 +42,4 @@ client.on('close', () => {
 // Enviar uma mensagem para o servidor
 function pushMensage(mensagem) {
   client.write(mensagem);
-  pullMensage();
 }
-
-pullMensage();
