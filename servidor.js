@@ -17,7 +17,6 @@ const server = net.createServer((socket) => {
   function writeMensage() {
     rl.question('Digite sua mensagem: ', (input) => {
       const mensagem = input;
-
       if(mensagem.trim() == 'stop') {
         // Fecha a conexão com o cliente
         socket.end()
@@ -41,6 +40,8 @@ const server = net.createServer((socket) => {
   // Lidar com a desconexão do cliente
   socket.on('close', () => {
     console.log('Conexão fechada');
+    // Fechar a interface de leitura
+    rl.close(); 
   });
 
   writeMensage();

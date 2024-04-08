@@ -37,6 +37,8 @@ client.on('data', (mensagem) => {
 // Lidar com a desconexão do servidor
 client.on('close', () => {
   console.log('Conexão fechada');
+  // Fechar a interface de leitura
+  rl.close(); 
 });
 
 // Enviar uma mensagem para o servidor
